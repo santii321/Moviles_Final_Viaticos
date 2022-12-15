@@ -4,10 +4,12 @@ import com.example.viaticosonline.entidades.Empleado;
 import com.example.viaticosonline.entidades.Viaje;
 import com.example.viaticosonline.repositorios.RepositorioViaje;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ServiciosViaje implements Servicios<Viaje>{
 
     @Autowired
@@ -35,8 +37,13 @@ public class ServiciosViaje implements Servicios<Viaje>{
     }
 
     @Override
-    public Viaje registrar(Object entidad) throws Exception {
-        return null;
+    public Viaje registrar(Viaje entidad) throws Exception {
+        try{
+            entidad = repositorioViaje.save(entidad);
+            return entidad;
+        }catch(Exception error){
+            throw new Exception(error.getMessage());
+        }
     }
     @Override
     public Viaje editar(Integer id, Viaje entidad) throws Exception {

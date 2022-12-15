@@ -4,13 +4,12 @@ import com.example.viaticosonline.entidades.Empleado;
 import com.example.viaticosonline.servicios.ServiciosEmpleados;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/uribe/empelado")
-public class ConttroladorEmpleado {
+public class ControladorEmpleado {
 
     @Autowired
     ServiciosEmpleados serviciosEmpleados;

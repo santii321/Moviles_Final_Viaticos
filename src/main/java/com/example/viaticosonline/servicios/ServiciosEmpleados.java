@@ -35,8 +35,14 @@ public class ServiciosEmpleados implements Servicios<Empleado>{
     }
 
     @Override
-    public Empleado registrar(Object entidad) throws Exception {
-        return null;
+    public Empleado registrar(Empleado entidad) throws Exception {
+        try{
+
+            entidad = repositorioEmpleado.save(entidad);
+            return entidad;
+        }catch(Exception error){
+            throw new Exception(error.getMessage());
+        }
     }
 
     @Override
